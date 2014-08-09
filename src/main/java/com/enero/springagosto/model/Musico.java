@@ -13,6 +13,11 @@ public class Musico extends Persona {
     }
 
     public Musico() {
+        
+    }
+    
+    public Musico(Instrumento instrumento) {
+            this.instrumento = instrumento;
     }
     
     public Musico(int numerocanciones, Instrumento instrumento) {

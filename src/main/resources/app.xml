@@ -26,6 +26,48 @@
     <bean id="lennon" class="com.enero.springagosto.model.Musico">
         <property name="nombres" value="John Lennon"/>
         <property name="numerocanciones" value="4" />
+        <!-- Inyeccion de referencia via setter -->
+        <property name="instrumento" ref="instrumento" />
     </bean>
     
+    
+    <bean id="james" class="com.enero.springagosto.model.Musico">
+        <property name="nombres" value="James Morrison"/>
+        <property name="numerocanciones" value="4" />
+        <!-- Inyeccion de referencia via setter -->
+        <property name="instrumento">
+            <bean class="com.enero.springagosto.model.Guitarra">
+                <property name="marca" value="Gibson"/>
+            </bean>
+        </property>
+    </bean>
+    
+    
+    
+    
+    <bean id="guitarra" class="com.enero.springagosto.model.Guitarra">
+        <property name="marca" value="Gibson"/>
+    </bean>
+    <bean id="piano" class="com.enero.springagosto.model.Piano">
+        <property name="marca" value="Pianos Z"/>
+    </bean>
+    
+    <bean id="jimy" class="com.enero.springagosto.model.Musico">
+        <property name="nombres" value="James Morrison"/>
+        <property name="numerocanciones" value="4" />
+        <!-- Inyeccion de referencia via setter -->
+        <property name="instrumentos">
+            <list>
+                <ref bean="guitarra"/>
+                <ref bean="piano"/>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="sanz" class="com.enero.springagosto.model.Musico" autowire="byName"/>
+    <bean id="bajo" class="com.enero.springagosto.model.Instrumento" primary="true">
+        <property name="marca" value="Yamaha"/>  
+    </bean>
+    <bean id="cerati" class="com.enero.springagosto.model.Musico" autowire="byType"/>
+    <bean id="charly" class="com.enero.springagosto.model.Musico" autowire="constructor"/>
 </beans>
