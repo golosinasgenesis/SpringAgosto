@@ -1,4 +1,4 @@
-package com.enero.springagosto.model;
+package com.enero.springagosto.beans.model;
 
 public class Persona {
     

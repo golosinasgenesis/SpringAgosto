@@ -11,7 +11,6 @@
         <property name="username" value="root" />
         <property name="password" value="mysql" />
     </bean>
-    <bean id="localDAO" class="app.jdbc.dao.jdbc.LocalDAOJ">
-        <property name="dataSource" ref="dataSource" />
-    </bean>
+    
+    <bean id="programaDAO" class="com.enero.springagosto.jdbc.dao.ProgramaDAOJ" autowire="byType"/>
 </beans>

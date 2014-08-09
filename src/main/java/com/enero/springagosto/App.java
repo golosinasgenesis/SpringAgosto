@@ -1,6 +1,6 @@
 package com.enero.springagosto;
 
-import com.enero.springagosto.model.Persona;
+import com.enero.springagosto.beans.model.Persona;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

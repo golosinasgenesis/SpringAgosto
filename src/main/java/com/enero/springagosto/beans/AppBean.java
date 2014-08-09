@@ -1,7 +1,7 @@
 package com.enero.springagosto.beans;
 
-import com.enero.springagosto.model.Musico;
-import com.enero.springagosto.model.Instrumento;
+import com.enero.springagosto.beans.model.Musico;
+import com.enero.springagosto.beans.model.Instrumento;
 import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

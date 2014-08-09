@@ -7,7 +7,8 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 public class ProgramaDAOJ extends JdbcDaoSupport implements ProgramaDAO{
 
     public List<Programa> all() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String query = "SELECT * FROM programa";
+        return this.getJdbcTemplate().query(query, new ProgramaRowMapper());
     }
 
     public Programa find(long id) {

@@ -9,9 +9,9 @@ public class ProgramaRowMapper implements RowMapper<Programa> {
 
     public Programa mapRow(ResultSet rs, int rowNum) throws SQLException {
         Programa programa = new Programa();
-        programa.setId(rs.getLong(0));
-        programa.setNombre(rs.getString(1));
-        programa.setDescripcion(rs.getString(2));
+        programa.setId(rs.getLong(1));
+        programa.setNombre(rs.getString(2));
+        programa.setDescripcion(rs.getString(3));
         return programa;
     }
 }
