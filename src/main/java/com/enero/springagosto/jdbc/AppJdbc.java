@@ -17,7 +17,7 @@ public class AppJdbc {
         ProgramaDAO programaDAO = (ProgramaDAO) context.getBean("programaDAO");
         List<Programa> programas = programaDAO.all();
         for(Programa programa: programas){
-            System.out.println(programa.getNombre());
+            System.out.println(programa.getNombre()+" - "+programa.getDescripcion()+" - "+programa.getCodigo());
         }
     }
 }
