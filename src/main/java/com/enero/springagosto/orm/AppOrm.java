@@ -1,20 +1,20 @@
-package com.enero.springagosto.jdbc;
+package com.enero.springagosto.orm;
 
-import com.enero.springagosto.jdbc.dao.ProgramaDAO;
-import com.enero.springagosto.jdbc.model.Programa;
+import com.enero.springagosto.orm.dao.ProgramaDAO;
+import com.enero.springagosto.orm.model.Programa;
 import java.util.List;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class AppJdbc {
+public class AppOrm {
     
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("jdbc_db.xml");
-        //AppJdbc.doDelete(context);
-        AppJdbc.doList(context);
+        ApplicationContext context = new ClassPathXmlApplicationContext("hibernate-db.xml");
+        AppOrm.doUpdate(context);
+        AppOrm.doAll(context);
     }
     
-    public static void doList(ApplicationContext context) {
+    public static void doAll(ApplicationContext context) {
         ProgramaDAO programaDAO = (ProgramaDAO) context.getBean("programaDAO");
         List<Programa> programas = programaDAO.all();
         for(Programa programa: programas){
@@ -28,36 +28,29 @@ public class AppJdbc {
         System.out.println(programa.getNombre()+" - "+programa.getDescripcion()+" - "+programa.getCodigo());
     }
     
-    public static void dofindCode(ApplicationContext context) {
-        ProgramaDAO programaDAO = (ProgramaDAO) context.getBean("programaDAO");
-        Programa programa = programaDAO.find("1473");
-        System.out.println(programa.getNombre()+" - "+programa.getDescripcion()+" - "+programa.getCodigo());
-    }
-    
     public static void doSave(ApplicationContext context) {
         ProgramaDAO programaDAO = (ProgramaDAO) context.getBean("programaDAO");
         Programa programa = new Programa();
-        programa.setNombre("Linux");
-        programa.setDescripcion("Curso de Linux");
-        programa.setCodigo("147");
+        programa.setNombre("PHP");
+        programa.setDescripcion("Curso de PHP");
+        programa.setCodigo("8080");
         programaDAO.save(programa);
     }
     
     public static void doUpdate(ApplicationContext context) {
         ProgramaDAO programaDAO = (ProgramaDAO) context.getBean("programaDAO");
         Programa programa = new Programa();
-        programa.setId(5);
-        programa.setNombre("Linux1");
-        programa.setDescripcion("Curso de Linux2");
-        programa.setCodigo("1473");
+        programa.setId(7);
+        programa.setNombre("PHP POO");
+        programa.setDescripcion("Curso de PHP POO");
+        programa.setCodigo("77");
         programaDAO.update(programa);
     }
     
     public static void doDelete(ApplicationContext context) {
         ProgramaDAO programaDAO = (ProgramaDAO) context.getBean("programaDAO");
         Programa programa = new Programa();
-        programa.setId(6);
+        programa.setId(7);
         programaDAO.delete(programa);
     }
-    
 }
