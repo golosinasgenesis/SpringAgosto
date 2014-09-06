@@ -6,8 +6,19 @@ public class Curso {
     private long id;
     private String nombre;
     private String codigo;
-    private Date fechainicio;
+    private String fechainicio;
+    private long idprograma;
     private Programa programa;
+    
+    public long getIdprograma() {
+        return idprograma;
+    }
+
+    public void setIdprograma(long idprograma) {
+        this.idprograma = idprograma;
+    }
+    
+    
 
     public long getId() {
         return id;
@@ -33,11 +44,11 @@ public class Curso {
         this.codigo = codigo;
     }
 
-    public Date getFechainicio() {
+    public String getFechainicio() {
         return fechainicio;
     }
 
-    public void setFechainicio(Date fechainicio) {
+    public void setFechainicio(String fechainicio) {
         this.fechainicio = fechainicio;
     }
 

@@ -1,6 +1,8 @@
 package com.enero.springagosto.orm;
 
+import com.enero.springagosto.orm.model.Curso;
 import com.enero.springagosto.orm.dao.ProgramaDAO;
+import com.enero.springagosto.orm.dao.CursoDAO;
 import com.enero.springagosto.orm.model.Programa;
 import java.util.List;
 import org.springframework.context.ApplicationContext;
@@ -10,10 +12,36 @@ public class AppOrm {
     
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("hibernate-db.xml");
-        AppOrm.doUpdate(context);
-        AppOrm.doAll(context);
+        //AppOrm.doUpdate(context);
+        AppOrm.dofindIdCurso(context);
     }
     
+    //CURSO
+    public static void doAllCurso(ApplicationContext context) {
+        CursoDAO cursoDAO = (CursoDAO) context.getBean("cursoDAO");
+        List<Curso> cursos = cursoDAO.all();
+        for(Curso curso: cursos){
+            System.out.println(curso.getNombre()+" - "+curso.getCodigo()+" - "+curso.getFechainicio());
+        }
+    }
+    
+    public static void dofindIdCurso(ApplicationContext context) {
+        CursoDAO cursoDAO = (CursoDAO) context.getBean("cursoDAO");
+        Curso curso = cursoDAO.find(3);
+        System.out.println(curso.getNombre()+" - "+curso.getCodigo()+" - "+curso.getFechainicio());
+    }
+    
+    public static void doSaveCurso(ApplicationContext context) {
+        CursoDAO cursoDAO = (CursoDAO) context.getBean("cursoDAO");
+        Curso curso = new Curso();
+        curso.setNombre("Mysql");
+        curso.setCodigo("752");
+        curso.setFechainicio("2014-09-04");
+        //curso.setPrograma();
+        cursoDAO.save(curso);
+    }
+    
+    //PROGRAMA
     public static void doAll(ApplicationContext context) {
         ProgramaDAO programaDAO = (ProgramaDAO) context.getBean("programaDAO");
         List<Programa> programas = programaDAO.all();
